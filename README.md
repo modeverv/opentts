@@ -1,3 +1,16 @@
+# リリースについて
+dockerで動かして良いのだけれど、librosaがnumpyの消されたfunction使っているのでcoquiでこける  
+なのでdockerに入ってなんとかする必要あり
+```
+docker exec -u 0 -it 2a9eb0208ba8 sh
+apt install -y procps emacs
+```
+1000行あたりのnp.complexをnp.complex128にする必要があり。  
+でpsで`kill -9 1`します。  
+めんどくさいけどこれが必要。
+
+
+
 # Open Text to Speech Server
 
 Unifies access to multiple open source text to speech systems and voices for [many languages](#running).
