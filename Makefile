@@ -8,9 +8,11 @@ DOCKER_PLATFORMS ?=
 DOCKER_PUSH ?= --output=type=docker
 
 DOCKER_TAG ?= synesthesiam/opentts
-DOCKER_BUILD ?= docker buildx build . -f Dockerfile $(DOCKER_PLATFORMS) $(DOCKER_PUSH)
+DOCKER_BUILD ?= docker buildx build . -f Dockerfile $(DOCKER_PLATFORMS) $(DOCKER_PUSH) 
 DOCKER_RUN ?= docker run -it -p 5500:5500
-RUN_ARGS ?= --debug
+DOCKER_RUND ?= docker run -d -it -p 5500:5500
+# RUN_ARGS ?= --debug
+RUN_ARGS ?= 
 
 all:
 	./configure --language ar,bn,ca,cs,de,el,en,es,fi,fr,gu,hi,hu,it,ja,kn,ko,mr,nl,pa,ru,sv,sw,ta,te,tr,zh
@@ -74,6 +76,9 @@ en:
 
 en-run:
 	$(DOCKER_RUN) $(DOCKER_TAG):en $(RUN_ARGS)
+
+en-rund:
+	$(DOCKER_RUND) $(DOCKER_TAG):en $(RUN_ARGS)
 
 # Spanish
 es:

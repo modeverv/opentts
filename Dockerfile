@@ -16,7 +16,7 @@ RUN --mount=type=cache,id=apt-build,target=/var/cache/apt \
     mkdir -p /var/cache/apt/${TARGETARCH}${TARGETVARIANT}/archives/partial && \
     apt-get update && \
     apt-get install --yes --no-install-recommends \
-        build-essential python3 python3-venv python3-dev wget
+        build-essential python3 python3-venv python3-dev wget emacs procps
 
 # Install extra Debian build packages added from ./configure
 COPY build_packages /build_packages
